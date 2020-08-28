@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace CustomerPortal.Areas.Identity.Pages.Account
 {
@@ -73,8 +75,49 @@ namespace CustomerPortal.Areas.Identity.Pages.Account
         {
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            if (ModelState.IsValid)
+
+            var queryObject = new
             {
+                query = @"
+                        query customers($email:String!)
+                            {customers (email: $email){ 
+                                email
+                                }
+                            }",
+
+                variables = new { email = Input.Email }
+
+            };
+
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                Content = new StringContent(JsonConvert.SerializeObject(queryObject), Encoding.UTF8, "application/json")
+            };
+
+            dynamic responseObj;
+
+            using (var response = await Program.httpClient.SendAsync(request))
+            {
+                //response.EnsureSuccessStatusCode();
+
+                var responseString = await response.Content.ReadAsStringAsync();
+                responseObj = JsonConvert.DeserializeObject<dynamic>(responseString);
+            }
+
+            if (ModelState.IsValid && responseObj["data"]["customer"] != null)
+
+            {
+                
+
+                //httpClient.DefaultRequestHeaders.Add("User-Agent", "MyConsoleApp");
+
+                //string basicValue = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{Configs.GithubAccount}:{Configs.PersonalToken}"));
+                //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", basicValue);
+
+               
+
+               
                 var user = new CustomerPortalUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
@@ -106,6 +149,13 @@ namespace CustomerPortal.Areas.Identity.Pages.Account
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "No corresponding email in our database. Contact Tech Support for more information.");
+
+
+
             }
 
             // If we got this far, something failed, redisplay form

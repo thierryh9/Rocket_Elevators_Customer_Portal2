@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YQ5vBaYNYaCLQ2TYUEA0lMLkaPpcLYzIMxRzxECOAj2j0lwDMuzrv00rb8B0RrvrbGSPpYUBwdLHrLLbpAuWuA==",
+  "dgSpecHash": "nFylYxuHFwv6C52NzyWElAJAw9klSXCIzkVk/Jgjc1X0veSFPqaihsv/nZtGcrKQYjm7lrAgXVg+XFDX73NYBg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Thierry Harvey\\source\\repos\\CustomerPortal\\CustomerPortal\\CustomerPortal.csproj",
   "expectedPackageFiles": [
@@ -124,6 +124,7 @@
     "C:\\Users\\Thierry Harvey\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Thierry Harvey\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Thierry Harvey\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
+    "C:\\Users\\Thierry Harvey\\.nuget\\packages\\system.net.http.winhttphandler\\4.7.2\\system.net.http.winhttphandler.4.7.2.nupkg.sha512",
     "C:\\Users\\Thierry Harvey\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
     "C:\\Users\\Thierry Harvey\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Thierry Harvey\\.nuget\\packages\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
