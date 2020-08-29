@@ -79,11 +79,12 @@ namespace CustomerPortal.Areas.Identity.Pages.Account
             var queryObject = new
             {
                 query = @"
-                        query customers($email:String!)
-                            {customers (email: $email){ 
-                                email
-                                }
-                            }",
+                        query customers($email: String!) {
+                          customers(email: $email) {
+                            email
+                          }
+                        }
+                        ",
 
                 variables = new { email = Input.Email }
 
@@ -99,16 +100,16 @@ namespace CustomerPortal.Areas.Identity.Pages.Account
 
             using (var response = await Program.httpClient.SendAsync(request))
             {
-                //response.EnsureSuccessStatusCode();
+                response.EnsureSuccessStatusCode();
 
                 var responseString = await response.Content.ReadAsStringAsync();
                 responseObj = JsonConvert.DeserializeObject<dynamic>(responseString);
             }
-
-            if (ModelState.IsValid && responseObj["data"]["customer"] != null)
+            Console.WriteLine(responseObj);
+            if (ModelState.IsValid && responseObj["data"]["customers"] != null)
 
             {
-                
+                 
 
                 //httpClient.DefaultRequestHeaders.Add("User-Agent", "MyConsoleApp");
 

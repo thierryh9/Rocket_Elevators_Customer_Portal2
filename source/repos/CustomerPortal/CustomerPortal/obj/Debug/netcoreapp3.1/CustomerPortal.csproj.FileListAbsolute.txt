@@ -204,3 +204,4 @@ C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\bin\Debug\net
 C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Debug\netcoreapp3.1\CustomerPortal.csproj.CoreCompileInputs.cache
 C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Debug\netcoreapp3.1\CustomerPortal.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Debug\netcoreapp3.1\CustomerPortal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Debug\netcoreapp3.1\Razor\Views\Home\Intervention.cshtml.g.cs

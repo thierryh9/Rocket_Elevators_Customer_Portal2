@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Intervention";
+}
+<div class="text-center">
+    <h1 class="display-4">INTERVENTION</h1>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form id="interventionForm">
+            <div class="form-group">
+                <label for="buildingDropdown">Building</label>
+                <select class="form-control" id="buildingDropdown" name="buildDrop"><option value="0">--- Select ---</option>@Html.Raw(ViewBag.Buildings)</select>
+            </div>
+            <div class="form-group">
+                <label for="batteryDropdown">Battery</label>
+                <select class="form-control" id="batteryDropdown" name="battDrop"><option value="0">--- Select ---</option>@Html.Raw(ViewBag.Batteries)</select>
+            </div>
+            <div class="form-group">
+                <label for="columnDropdown">Column</label>
+                <select class="form-control" id="columnDropdown" name="colDrop"><option value="0">--- Select ---</option>@Html.Raw(ViewBag.Columns)</select>
+            </div>
+            <div class="form-group">
+                <label for="elevatorDropdown">Elevator</label>
+                <select class="form-control" id="elevatorDropdown" name="elevDrop"><option value="0">--- Select ---</option>@Html.Raw(ViewBag.Elevators)</select>
+            </div>
+            <div class="col-md-12 d-flex" for="interventionDescription"> Description </div>
+            <div class="form-group">
+                <textarea class="form-control" id="interventionDescription" rows="3" name="descDrop"></textarea>
+            </div>
+
+            <button class="btn btn-primary btn-lg btn-block" id="submitButton">SUBMIT</button>
+        </form>
+    </div>
+</div>
