@@ -205,3 +205,5 @@ C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Debug\net
 C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Debug\netcoreapp3.1\CustomerPortal.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Debug\netcoreapp3.1\CustomerPortal.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Debug\netcoreapp3.1\Razor\Views\Home\Intervention.cshtml.g.cs
+C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.CustomerPortal2020 - Web Deploy.json
+C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\CustomerPortal2020 - Web Deploy\profile.arm.json
