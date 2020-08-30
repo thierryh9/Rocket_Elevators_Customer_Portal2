@@ -9,21 +9,21 @@
 <div class="card">
     <div class="card-body">
         <form id="interventionForm">
-            <div class="form-group">
+            <div class="form-group ">
                 <label for="buildingDropdown">Building</label>
-                <select class="form-control" id="buildingDropdown" name="buildDrop"><option value="0">--- Select ---</option>@Html.Raw(ViewBag.Buildings)</select>
+                <select class="form-control" id="buildingDropdown" name="buildDrop"><option value="none">--- Select ---</option>@Html.Raw(ViewBag.Buildings)</select>
             </div>
-            <div class="form-group">
+            <div class="form-group salut battery">
                 <label for="batteryDropdown">Battery</label>
-                <select class="form-control" id="batteryDropdown" name="battDrop"><option value="0">--- Select ---</option>@Html.Raw(ViewBag.Batteries)</select>
+                <select class="form-control" id="batteryDropdown" name="battDrop"><option value="none">--- Select ---</option>@Html.Raw(ViewBag.Batteries)</select>
             </div>
-            <div class="form-group">
+            <div class="form-group salut column">
                 <label for="columnDropdown">Column</label>
-                <select class="form-control" id="columnDropdown" name="colDrop"><option value="0">--- Select ---</option>@Html.Raw(ViewBag.Columns)</select>
+                <select class="form-control" id="columnDropdown" name="colDrop"><option value="none">--- Select ---</option>@Html.Raw(ViewBag.Columns)</select>
             </div>
-            <div class="form-group">
+            <div class="form-group salut elevator">
                 <label for="elevatorDropdown">Elevator</label>
-                <select class="form-control" id="elevatorDropdown" name="elevDrop"><option value="0">--- Select ---</option>@Html.Raw(ViewBag.Elevators)</select>
+                <select class="form-control" id="elevatorDropdown" name="elevDrop"><option value="none">--- Select ---</option>@Html.Raw(ViewBag.Elevators)</select>
             </div>
             <div class="col-md-12 d-flex" for="interventionDescription"> Description </div>
             <div class="form-group">
@@ -34,3 +34,56 @@
         </form>
     </div>
 </div>
+<script>
+    //HIDING THE FIELDS
+    $(document).ready(function () {
+        $(".salut").hide();
+
+    })
+
+    //FUNCTIONS FOR EVERY FIELD
+
+    $("#batteryDropdown").prop("disabled", true);
+    $("#buildingDropdown").change(function () {
+        var building = $(this).val();
+        if (building == '') {
+            $("#batteryDropdown").prop("disabled", true);
+        } else {
+            $("#batteryDropdown").show()
+            $("#batteryDropdown").prop("disabled", false);
+        }
+        $(".battery").show();
+
+        });
+
+
+    $("#columnDropdown").prop("disabled", true);
+    $("#batteryDropdown").change(function () {
+        var batteryDropdown = $(this).val();
+        if (batteryDropdown == '') {
+            $("#columnDropdown").prop("disabled", true);
+        } else {
+            $("#columnDropdown").show()
+            $("#columnDropdown").prop("disabled", false);
+        }
+        $(".column").show();
+
+        });
+
+    $("#elevatorDropdown").prop("disabled", true);
+    $("#columnDropdown").change(function () {
+        var columnDropdown = $(this).val();
+        if (columnDropdown == '') {
+            $("#elevatorDropdown").prop("disabled", true);
+        } else {
+            $("#elevatorDropdown").show()
+            $("#elevatorDropdown").prop("disabled", false);
+        }
+        $(".elevator").show();
+
+        });
+   
+
+
+
+</script>
