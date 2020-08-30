@@ -1,3 +1,10 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/banane89/databases/rocket elevators",
+      "type": "mssql.azure",
+      "connectionId": "CustomerPortalContextConnection",
+      "secretStore": "AzureAppSettings"
+    }
+  }
 }

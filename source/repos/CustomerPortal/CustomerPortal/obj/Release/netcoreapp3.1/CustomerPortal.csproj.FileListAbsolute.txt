@@ -207,3 +207,4 @@ C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Release\n
 C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Release\netcoreapp3.1\CustomerPortal.dll
 C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Release\netcoreapp3.1\CustomerPortal.pdb
 C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\obj\Release\netcoreapp3.1\CustomerPortal.genruntimeconfig.cache
+C:\Users\Thierry Harvey\source\repos\CustomerPortal\CustomerPortal\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\CustomerPortal2020 - Web Deploy\mssql1.arm.json
