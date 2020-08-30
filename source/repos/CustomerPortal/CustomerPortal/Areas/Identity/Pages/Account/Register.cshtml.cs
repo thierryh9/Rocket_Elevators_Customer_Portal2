@@ -82,6 +82,7 @@ namespace CustomerPortal.Areas.Identity.Pages.Account
                         query customers($email: String!) {
                           customers(email: $email) {
                             email
+                            id
                           }
                         }
                         ",
@@ -105,6 +106,8 @@ namespace CustomerPortal.Areas.Identity.Pages.Account
                 var responseString = await response.Content.ReadAsStringAsync();
                 responseObj = JsonConvert.DeserializeObject<dynamic>(responseString);
             }
+            
+            
             Console.WriteLine(responseObj);
             if (ModelState.IsValid && responseObj["data"]["customers"] != null)
 

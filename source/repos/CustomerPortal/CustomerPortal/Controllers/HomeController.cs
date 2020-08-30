@@ -167,6 +167,49 @@ namespace CustomerPortal.Controllers
             return View();
         }
 
+        public async Task<IActionResult> InterventionToDatabaseAsync(int? custom_id, int? buildDrop, int? battDrop, int? colDrop, int? elevDrop, string? interDes)
+        {
+           
+            var query = @"mutation ($customer_id: Int, $building_id: Int, $battery_id: Int, $column_id: Int, $elevator_id: Int, $report: String) {
+                            createIntervention(customer_id: $customer_id report: $report, column_id: $column_id, battery_id: $battery_id, building_id: $building_id, elevator_id: $elevator_id) {
+                                id
+                              }
+                            }
+                  ";
+            var obj = new
+            {
+                query,
+                variables = new
+                {
+                    customer_id = custom_id,
+                    building_id = buildDrop, 
+                    battery_id = battDrop,
+                    column_id = colDrop,
+                    elevator_id = elevDrop,
+                    report = interDes
+                }               
+
+            };
+
+        var request = new HttpRequestMessage
+        {
+            Method = HttpMethod.Post,
+            Content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json")
+        };
+
+        dynamic responseObj;
+
+            using (var response = await Program.httpClient.SendAsync(request))
+            {
+                //response.EnsureSuccessStatusCode();
+
+                var responseString = await response.Content.ReadAsStringAsync();
+                responseObj = JsonConvert.DeserializeObject<dynamic>(responseString);
+            }
+            Console.WriteLine(responseObj);
+            return RedirectToAction("Index");
+        }
+
         public async Task<IActionResult> InterventionAsync()
 
         {
@@ -219,7 +262,10 @@ namespace CustomerPortal.Controllers
                 responseObj = JsonConvert.DeserializeObject<dynamic>(responseString);
             }
             Console.WriteLine(responseObj);
-            for(int i = 0; i < responseObj["data"]["getEverything"]["buildings"].Count;i++){
+           
+            ViewBag.CustomerId += $"<input type='hidden' id='custom_id' name='custom_id' value={responseObj["data"]["getEverything"]["customer"]["id"]}>";
+            
+            for (int i = 0; i < responseObj["data"]["getEverything"]["buildings"].Count;i++){
                 ViewBag.Buildings += $"<option name='customer_id'  value='{responseObj["data"]["getEverything"]["buildings"][i]["id"]}'>Building ID: {responseObj["data"]["getEverything"]["buildings"][i]["id"]}</option>";
             }
 
@@ -244,6 +290,9 @@ namespace CustomerPortal.Controllers
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
+
+        
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
